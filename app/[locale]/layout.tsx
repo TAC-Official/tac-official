@@ -1,10 +1,11 @@
 import { Header } from "@/components/header";
 import { Toaster } from "@/components/ui/sonner";
 import type { Metadata } from "next";
-import { NextIntlClientProvider } from "next-intl";
-import { getLocale } from "next-intl/server";
+import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { routing } from "@/i18n/routing";
+import { notFound } from "next/navigation";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,10 +24,16 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({
   children,
+  params,
 }: Readonly<{
   children: React.ReactNode;
+  params: Promise<{ locale: string }>;
 }>) {
-  const locale = await getLocale();
+  const { locale } = await params;
+
+  if (!hasLocale(routing.locales, locale)) {
+    notFound();
+  }
 
   return (
     <html lang={locale} className="scroll-smooth">

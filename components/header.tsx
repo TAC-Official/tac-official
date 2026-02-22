@@ -8,8 +8,8 @@ import {
   NavigationMenuList,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
+import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
-import Link from "next/link";
 import { toast } from "sonner";
 
 export function Header() {

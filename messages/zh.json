@@ -1,0 +1,10 @@
+{
+  "Header": {
+    "brand": "TAC",
+    "home": "主页",
+    "about": "关于",
+    "login": "登录",
+    "signup": "注册",
+    "authNotImplemented": "用户系统尚未实装。"
+  }
+}
