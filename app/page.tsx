@@ -1,4 +1,5 @@
-
 export default function Page() {
-<div></div>
+  <div className="">
+    <header className=""></header>
+  </div>;
 }
