@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { Button } from "@/components/ui/button";
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -8,10 +8,14 @@ import {
   NavigationMenuList,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-import { Button } from "@/components/ui/button";
+import { useTranslations } from "next-intl";
+import Link from "next/link";
 import { toast } from "sonner";
 
 export function Header() {
+  // Pass the "Header" object's subs
+  const t = useTranslations("Header");
+
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/90 backdrop-blur-md supports-backdrop-filter:bg-background/60">
       <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-8">
@@ -26,7 +30,9 @@ export function Header() {
                 T
               </span>
             </div>
-            <span className="text-xl font-bold tracking-tight">TAC</span>
+            <span className="text-xl font-bold tracking-tight">
+              {t("brand")}
+            </span>
           </Link>
 
           <NavigationMenu className="hidden md:flex">
@@ -36,7 +42,7 @@ export function Header() {
                   asChild
                   className={navigationMenuTriggerStyle()}
                 >
-                  <Link href="/">Home</Link>
+                  <Link href="/">{t("home")}</Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
 
@@ -45,7 +51,7 @@ export function Header() {
                   asChild
                   className={navigationMenuTriggerStyle()}
                 >
-                  <Link href="/about">About</Link>
+                  <Link href="/about">{t("about")}</Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
             </NavigationMenuList>
@@ -58,15 +64,12 @@ export function Header() {
             variant="ghost"
             size="sm"
             className="hidden sm:inline-flex"
-            onClick={() => toast("Auth feature are not implemented yet.")}
+            onClick={() => toast(t("authNotImplemented"))}
           >
-            Log in
+            {t("login")}
           </Button>
-          <Button
-            size="sm"
-            onClick={() => toast("Auth feature are not implemented yet.")}
-          >
-            Sign up
+          <Button size="sm" onClick={() => toast(t("authNotImplemented"))}>
+            {t("signup")}
           </Button>
         </div>
       </div>
