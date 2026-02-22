@@ -1,4 +1,5 @@
 import { Header } from "@/components/header";
+import { Toaster } from "@/components/ui/sonner";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -36,6 +37,8 @@ export default function RootLayout({
         <Header />
         {/* flex-1 lets main take up the remaining viewport space pushing footers down */}
         <main className="flex flex-1 flex-col">{children}</main>
+
+        <Toaster />
       </body>
     </html>
   );

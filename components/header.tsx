@@ -7,6 +7,7 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import { Button } from "@/components/ui/button";
+import { toast } from "sonner";
 
 export function Header() {
   return (
@@ -51,10 +52,20 @@ export function Header() {
 
         {/* Action Buttons */}
         <div className="flex items-center gap-4">
-          <Button variant="ghost" size="sm" className="hidden sm:inline-flex">
+          <Button
+            variant="ghost"
+            size="sm"
+            className="hidden sm:inline-flex"
+            onClick={() => toast("Auth feature are not implemented yet.")}
+          >
             Log in
           </Button>
-          <Button size="sm">Sign up</Button>
+          <Button
+            size="sm"
+            onClick={() => toast("Auth feature are not implemented yet.")}
+          >
+            Sign up
+          </Button>
         </div>
       </div>
     </header>
