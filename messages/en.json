@@ -1,0 +1,10 @@
+{
+  "Header": {
+    "brand": "TAC",
+    "home": "Home",
+    "about": "About",
+    "login": "Log in",
+    "signup": "Sign up",
+    "authNotImplemented": "Auth feature are not implemented yet."
+  }
+}
